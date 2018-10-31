@@ -1,15 +1,14 @@
 let Calendar = function(month, container) {
     if (month === undefined) {
-        month = moment().locale("gb").month();
+        month = moment().month();
     }
     this.month = month;
     this.container = container;
-    this.m = moment().locale("gb");
+    this.m = moment()
     if (month !== this.m.month()) {
         this.m.month(month);
     }
     this.m.date(1);
-    this.m.locale("gb");
     this.template = document.getElementById("cal-template").innerHTML;
 
     this.computeWeeks = function() {
@@ -21,9 +20,6 @@ let Calendar = function(month, container) {
 
         clone.weekday(0);
         var end = this.m.clone().date(1).add(1, "month").weekday(6).add(1, "day");
-        console.log("end date", end.toString(), end);
-        console.log("clone date", clone.toString(), clone);
-
         for (; clone.isBefore(end); clone.add(1, "day")) {
             currentWeek.push({
                 "m": clone.clone(),
@@ -64,6 +60,7 @@ let Calendar = function(month, container) {
 }
 
 window.addEventListener("load", function() {
+    moment.locale("en-gb");
     window.el = document.getElementById("cal-container");
     window.cal = new Calendar(undefined, window.el);
     window.cal.render();
