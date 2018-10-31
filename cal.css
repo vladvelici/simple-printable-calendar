@@ -1,13 +1,13 @@
 html, body {
     margin: 0;
     padding: 0;
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
 }
 
 #cal-container {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 #cal-container > table {
@@ -49,7 +49,36 @@ td.weekday .date-number {
 }
 
 td.weekday.notCurrent .date-number {
-    color: #aaa;
+    color: #999 !important;
+    -webkit-print-color-adjust: exact;
+}
+
+@media print {
+    td.weekday.notCurrent .date-number {
+        color: #999 !important;
+    }
+}
+
+@media print and (-webkit-min-device-pixel-ratio:0) {
+    td.weekday.notCurrent .date-number {
+        color: #999 !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* @media print {
+    html, body {
+        height: 297mm;
+        width: 400mm;
+    }
+} */
+@media print {
+  @page {
+    size: 420mm 297mm; /* landscape */
+    /* you can also specify margins here: */
+    /* margin: 25mm;
+    margin-right: 45mm; */
+  }
 }
 
 td.weekday.current .date-number {
