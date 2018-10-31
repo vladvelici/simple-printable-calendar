@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Calendar</title>
+        <link rel="stylesheet" href="./cal.css">
+    </head>
+    <body>
+        <div id="cal-container">
+        </div>
+        <script id="cal-template" type="x-tmpl-mustache">
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="7" class="monthName">
+                            <a href="#" id="prevBtn" class="nav-btn no-print">previous</a>
+                            {{ monthName }}
+                            <a href="#" id="nextBtn" class="nav-btn no-print">next</a>
+                        </td>
+                    </tr>
+                    <tr class="weekdays">
+                        <td class="weekday-title">Monday</td>
+                        <td class="weekday-title">Tuesday</td>
+                        <td class="weekday-title">Wednesday</td>
+                        <td class="weekday-title">Thursday</td>
+                        <td class="weekday-title">Friday</td>
+                        <td class="weekday-title">Saturday</td>
+                        <td class="weekday-title">Sunday</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#weeks}}
+                        <tr>
+                        {{#.}}
+                            <td class="weekday {{#currentMonth}}current{{/currentMonth}}{{^currentMonth}}notCurrent{{/currentMonth}}">
+                                <span class="date-number">{{ date }}</span>
+                            </td>
+                        {{/.}}
+                        </tr>
+                    {{/weeks}}
+                </tbody>
+            </table>
+        </script>
+        <script src="./mustache.min.js" charset="utf-8"></script>
+        <script src="./moment-with-locales.min.js" charset="utf-8"></script>
+        <script src="./cal.js" charset="utf-8"></script>
+    </body>
+</html>

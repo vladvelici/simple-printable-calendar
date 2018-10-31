@@ -1,0 +1,70 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+#cal-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+#cal-container > table {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+#cal-container > table > thead tr {
+    height: 30px;
+}
+
+#cal-container tr {
+    margin: 0;
+    padding: 0;
+}
+
+#cal-container td {
+    border: 1px solid #999;
+    margin: 0;
+    padding: 0;
+}
+
+td.weekday, td.weekday-title {
+    width: 14.28%;
+}
+
+td.weekday {
+    vertical-align: top;
+    text-align: left;
+}
+
+td.weekday .date-number {
+    display: inline-block;
+    padding: 10px;
+}
+
+td.weekday.notCurrent .date-number {
+    color: #aaa;
+}
+
+td.weekday.current .date-number {
+    color: #000;
+}
+
+.monthName, .weekdays {
+    font-weight: bold;
+    text-align: center;
+}
+
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
